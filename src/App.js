@@ -242,6 +242,7 @@ const emptyMatch = () => ({ teamA: "", teamB: "", league: "", date: "", h2h: "",
 
 const decimalToAmerican = (d) => d >= 2 ? `+${Math.round((d - 1) * 100)}` : `${Math.round(-100 / (d - 1))}`;
 const decimalToImplied = (d) => Math.round((1 / d) * 100);
+// eslint-disable-next-line no-unused-vars
 const americanToPayout = (american, stake) => {
   const a = parseFloat(american);
   if (a > 0) return stake * (a / 100);
@@ -423,6 +424,7 @@ function generateAnalysis(match, lastX, liveOdds) {
     edge: dc.real - dc.implied,
     caesars: dc.caesarsDecimal ? decimalToAmerican(dc.caesarsDecimal) : null,
   }));
+  // eslint-disable-next-line no-unused-vars
   const bestDC = dcOptions.reduce((a, b) => a.edge > b.edge ? a : b);
 
   const riskLevel = (real, implied) => {
